@@ -1,7 +1,7 @@
 function selectionSort(arr) {
     for(let i = 0 ; i < arr.length ; i++ ) {
         var least = arr[i] ;
-        for (var j  = i + 1; j < arr.length  ; j++) {
+        for (var j  = i + 1 ; j < arr.length  ; j++) {
             // console.log(arr,j,i) ;
             if (arr[j] < least ) {
                 swap(arr,j,i) ;
