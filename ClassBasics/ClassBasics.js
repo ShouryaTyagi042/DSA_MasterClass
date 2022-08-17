@@ -3,6 +3,15 @@ class Student{
         this.firstName = firstName ;
         this.secondName = secondName ;
         this.year = year ;
+        this.scores = [];
+    }
+
+    addScores(){
+        return this.scores ;
+    }
+
+    static enrollStudents() {
+        return "Enrolled" ;
     }
 }
 
