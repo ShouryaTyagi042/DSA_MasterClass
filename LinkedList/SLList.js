@@ -24,8 +24,12 @@ class singlyLinkedList {
         return this ;
 
     }
+    pop(){
 
+    }
 }
 
 var list = new singlyLinkedList() ;
 list.push("hello") ;
+list.push("Gooodbye") ;
+list.push("!")
