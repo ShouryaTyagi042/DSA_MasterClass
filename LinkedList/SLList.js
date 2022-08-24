@@ -92,6 +92,42 @@ class singlyLinkedList {
         this.length++;
         return true ;
     }
+    remove(index) {
+        if(index < 0 || index > this.leng ) return undefined ;
+        if(index === this.length)return this.pop() ;
+        if(index === 0)return this.Shift(val) ;
+
+        var prevNode = this.get(index-1) ;
+        var removed = prevNode.next ;
+        var nextNode = this.get(index+1) ;
+        prevNode.next = nextNode ;
+        this.length -- ;
+        return removed ;
+    }
+    print() {
+        var arr = [] ;
+        var current = this.head ;
+        while (current) {
+            arr.push(current.val) ;
+            current = current.next ;
+        }
+        console.log(arr) ;
+    }
+    reverse() {
+        var node = this.head ;
+        this.head = this.tail ;
+        this.tail = node ;
+        var next ;
+        var prev = null ;
+        for (let i = 0 ; i < this.length ; i++) {
+            next = node.next ;
+            node.next = prev ;
+            prev = node ;
+            node = next ;
+        }
+        return this ;
+    }
+
 }
 
 
