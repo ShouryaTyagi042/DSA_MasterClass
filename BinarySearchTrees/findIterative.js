@@ -36,6 +36,21 @@ class BST {
         }
     }
     find(val) {
+        if (this.root === null ) return false ;
+        var current = this.root ;
+        var found = false ;
+        while(current && !found) {
+            if(current.val < val) {
+                current = current.right ;
+            }
+            if(current.val > val) {
+                current = current.left ;
+            }
+            if(current.val === val) {
+                return true ;
+            }
+        }
+        return false ;
 
     }
 
