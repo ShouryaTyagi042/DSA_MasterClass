@@ -17,7 +17,7 @@ function minSubArrayLen(arr,val) {
         else if (total >= val ) {
             min = Math.min(min,end-start) ;
             total -= arr[start] ;
-            start -- ;
+            start ++ ;
 
         }
         else {
