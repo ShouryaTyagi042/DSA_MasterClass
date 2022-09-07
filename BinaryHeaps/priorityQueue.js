@@ -1,9 +1,16 @@
-class MaxBinaryHeap {
+class Node {
+    constructor(val,priority) {
+        this.val = val  ;
+        this.priority = priority ;
+    }
+}
+class priorityQueue {
     constructor(){
         this.values = [];
     }
-    insert(element){
-        this.values.push(element);
+    enqueue(element,priority){
+        let newNode = new Node(element,priority) ;
+        this.values.push(newNode);
         return this.bubbleUp();
     }
     bubbleUp(){
@@ -12,14 +19,14 @@ class MaxBinaryHeap {
         while(idx > 0){
             let parentIdx = Math.floor((idx - 1)/2);
             let parent = this.values[parentIdx];
-            if(element <= parent) break;
+            if(element.priority <= parent.priority) break;
             this.values[parentIdx] = element;
             this.values[idx] = parent;
             idx = parentIdx;
         }
         return this.values ;
     }
-    extractMax() {
+    dequeue() {
         const max = this.values[0] ;
         const end = this.values.pop() ;
         this.values[0] = end ;
@@ -37,13 +44,13 @@ class MaxBinaryHeap {
             let swap = null ;
             if (leftidx < length) {
                 left = this.values[leftidx] ;
-                if(left > element) {
+                if(left.priority > element.priority) {
                     swap = leftidx ;
                 }
             }
             if (rightidx < length ) {
                 right = this.values[rightidx] ;
-                if (( swap === null && right > element ) || ( swap != null && right > left )) {
+                if (( swap === null && right.priority > element.priority ) || ( swap != null && right.priority > left.priority )) {
                         swap = rightidx ;
                     }
             }
@@ -57,15 +64,7 @@ class MaxBinaryHeap {
     }
 }
 
-let heap = new MaxBinaryHeap();
-heap.insert(41);
-heap.insert(39);
-heap.insert(33);
-heap.insert(18);
-heap.insert(27);
-heap.insert(12);
-heap.insert(55);
-console.log(heap.values) ;
-
-
-[41,39,33,18,27,12]
+let Er = new priorityQueue() ;
+Er.enqueue("common cold",1) ;
+Er.enqueue("gunshot wound",5) ;
+Er.enqueue("High Fever",2) ;
