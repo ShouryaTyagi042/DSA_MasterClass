@@ -4,7 +4,7 @@ function hash(key,arrLen) {
     for(let i = 0 ; i < Math.min(key.length,100) ; i++) {
         let char = key[i] ;
         let value = char.charCodeAt(0) - 96 ;
-        total = (total*wierd_prime) % arrLen ;
+        total = (total*wierd_prime + value ) % arrLen ;
     }
     return total ;
 }
