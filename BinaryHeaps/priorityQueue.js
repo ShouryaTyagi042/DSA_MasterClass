@@ -59,9 +59,8 @@ class priorityQueue {
             this.values[swap] = element ;
             idx = swap ;
         }
-
-
     }
+
 }
 
 let Er = new priorityQueue() ;
