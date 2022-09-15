@@ -1,13 +1,13 @@
-class graph {
-    constructor() {
-        this.adjacencylist = {} ;
+class Graph{
+    constructor(){
+        this.adjacencyList = {};
     }
-    addVertex(vertex) {
-        if(!this.adjacencylist[vertex]) this.adjacencylist[vertex] = [] ;
+    addVertex(vertex){
+        if(!this.adjacencyList[vertex]) this.adjacencyList[vertex] = [];
     }
-    addEdge(v1,v2) {
-        this.adjacencylist[v1].push(v2) ;
-        this.adjacencylist[v2].push(v1) ;
+    addEdge(v1,v2){
+        this.adjacencyList[v1].push(v2);
+        this.adjacencyList[v2].push(v1);
     }
     removeEdge(vertex1,vertex2){
         this.adjacencyList[vertex1] = this.adjacencyList[vertex1].filter(
@@ -24,13 +24,9 @@ class graph {
         }
         delete this.adjacencyList[vertex]
     }
-    depthFirstRecursive(start) {
-
-
-    }
 }
 
-let g = new graph();
+let g = new Graph();
 g.addVertex("Dallas");
 g.addVertex("Tokyo");
 g.addVertex("Aspen");
@@ -42,3 +38,9 @@ g.addEdge("Hong Kong", "Tokyo");
 g.addEdge("Hong Kong", "Dallas");
 g.addEdge("Los Angeles", "Hong Kong");
 g.addEdge("Los Angeles", "Aspen");
+
+
+
+
+
+

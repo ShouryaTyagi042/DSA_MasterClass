@@ -67,5 +67,5 @@ heap.insert(12);
 heap.insert(55);
 console.log(heap.values) ;
 
-
+console.log(heap.values)
 [41,39,33,18,27,12]
