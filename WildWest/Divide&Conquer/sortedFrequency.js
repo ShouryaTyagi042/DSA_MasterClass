@@ -1,32 +1,70 @@
-function sortedFrequency(arr, val){
-  let i , j ;
-  i = firstOccurence(arr,0,arr.length-1,val) ;
-  if (i === -1 ) return i ;
-  j = lastOccurence(arr,i+1,arr.length-1,val) ;
-  return (j-i+1) ;
+function sortedFrequency(arr, x)
+{
+     let n = arr.length ;
+    // Index of first occurrence of x in arr[0..n-1]
+    let i;
+
+    // Index of last occurrence of x in arr[0..n-1]
+    let j;
+
+    // Get the index of first occurrence of x
+    i = first(arr, 0, n - 1, x);
+
+    // If x doesn't exist in arr[] then return -1
+    if (i == -1)
+        return i;
+
+    // Else get the index of last occurrence of x.
+    // Note that we are only looking in the
+    // subarray after first occurrence
+
+    j = last(arr, i, n - 1, x);
+
+    // return count
+    return j - i + 1;
 }
 
-function firstOccurence(arr,start,end,val) {
-  if (arr[0] === val )return 0 ;
-  while (start <= end ) {
-    let mid = Math.floor(end - (end - start) / 2 ) ;
-    if (val > arr[mid - 1] && arr[mid] === val) return mid;
-    else if ( val > arr[mid]) start = mid + 1 ;
-    else end = mid - 1 ;
-  }
-  return -1 ;
+// if x is present in arr[] then returns the
+// index of FIRST occurrence of x in arr[0..n-1],
+// otherwise returns -1
+function first(arr, low, high, x)
+{
+    if (high >= low)
+    {
+
+        // low + (high - low)/2;
+        let mid = (low + high) / 2;
+
+        if ((mid == 0 || x > arr[mid - 1]) &&
+        arr[mid] == x)
+            return mid;
+        else if (x > arr[mid])
+            return first(arr, (mid + 1), high, x);
+        else
+            return first(arr, low, (mid - 1), x);
+    }
+    return -1;
+}
+
+// If x is present in arr[] then returns the
+// index of LAST occurrence of x in arr[0..n-1],
+// otherwise returns -1
+function last(arr, low, high, x)
+{
+    if (high >= low)
+    {
+        /*low + (high - low)/2;*/
+        let mid = Math.floor((low + high) / 2);
+        if ((mid == arr.length - 1  || x < arr[mid + 1]) &&
+        arr[mid] == x)
+            return mid;
+        else if (x < arr[mid])
+            return last(arr, low, (mid - 1), x);
+        else
+            return last(arr, (mid + 1), high, x);
+    }
+    return -1;
 }
 
 
-function lastOccurence(arr,start,end,val) {
-  if (arr[end] === val)return end ;
-  while (start <= end ) {
-    let mid = Math.floor(end - (end - start) / 2 ) ;
-    if (val < arr[mid - 1] && arr[mid] === val) return mid;
-    else end = mid - 1 ;
-  }
-  return -1 ;
-}
-
-
-console.log(sortedFrequency([1,1,2,2,2,2,3],1))
+console.log(sortedFrequency([1,1,2,2,2,2,3],3))
