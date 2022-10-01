@@ -93,7 +93,7 @@ class singlyLinkedList {
         return true ;
     }
     remove(index) {
-        if(index < 0 || index > this.leng ) return undefined ;
+        if(index < 0 || index > this.length ) return undefined ;
         if(index === this.length)return this.pop() ;
         if(index === 0)return this.Shift(val) ;
 

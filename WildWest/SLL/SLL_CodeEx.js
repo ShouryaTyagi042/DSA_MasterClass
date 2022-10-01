@@ -98,6 +98,13 @@ class SinglyLinkedList{
         }
         return true ;
     }
+    remove(val,index) {
+        var counter = 0 ;
+        var current = this.head ;
+        while(current !== index) {
+
+        }
+    }
 }
 
 var singlyLinkedList = new SinglyLinkedList;
