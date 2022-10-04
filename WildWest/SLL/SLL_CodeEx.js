@@ -102,8 +102,10 @@ class SinglyLinkedList{
         var counter = 0 ;
         var current = this.head ;
         while(current !== index) {
-
+            this.current = this.current.next ;
+            counter ++ ;
         }
+
     }
 }
 
