@@ -101,6 +101,7 @@ class singlyLinkedList {
         var removed = prevNode.next ;
         var nextNode = this.get(index+1) ;
         prevNode.next = nextNode ;
+
         this.length -- ;
         return removed ;
     }
