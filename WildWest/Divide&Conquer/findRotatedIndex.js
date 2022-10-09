@@ -1,9 +1,10 @@
 function findRotatedIndex(arr,target){
   var pivotIndex = findPivot(arr) ;
+  // console.log(pivotIndex)
   if (pivotIndex === -1) return binarySearch(arr,0,arr.length-1,target) ;
   if (arr[pivotIndex] === target) return pivotIndex ;
-  if (arr[pivotIndex] > target ) return binarySearch(arr,0,pivotIndex,target) ;
-  else return binarySearch(binarySearch(arr,pivotIndex,arr.length-1,target)) ;
+  if (arr[0] > target  ) return binarySearch(arr,pivotIndex+1,arr.length-1,target) ;
+  else return binarySearch(arr,0,pivotIndex-1,target) ;
 }
 
 function findPivot(arr) {
@@ -32,5 +33,6 @@ function binarySearch(arr,start,end,target) {
   return -1 ;
 }
 
-console.log(findPivot([6, 7, 8, 9, 1, 2, 3, 4]))
-// console.log(findRotatedIndex([6, 7, 8, 9, 1, 2, 3, 4], 3))
+// console.log(findPivot([6, 7, 8, 9, 1, 2, 3, 4]))
+// console.log(findRotatedIndex([6, 7, 8, 9, 1, 2, 3, 4], 8))
+// console.log(binarySearch([6, 7, 8, 9, 1, 2, 3, 4],0,2,8))
