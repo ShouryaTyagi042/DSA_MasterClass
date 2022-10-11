@@ -35,34 +35,62 @@ class BinarySearchTree {
     }
   }
   find(value) {
-    if(this.root === null)return undefined ;
-    var current = this.root ;
-    var found = false ;
+    if (this.root === null) return undefined;
+    var current = this.root;
+    var found = false;
     while (current) {
-      if(value < current.value) {
-        current = current.left ;
+      if (value < current.value) {
+        current = current.left;
       }
-      if(current.value === value) {
-        return current ;
-      }
-      else {
-        current = current.right ;
+      if (current.value === value) {
+        return current;
+      } else {
+        current = current.right;
       }
     }
   }
-  DFSInOrder(){
-
+  depthFirstSearchPostOrder()  {
+    var data = [];
+    var current = this.root;
+    function traverse(node) {
+      data.push(node.value);
+      if (node.left) return traverse(node.left);
+      if (node.right) return traverse(node.right);
+    }
+    traverse(current);
+    return data;
+  }
+  depthFirstSearchPreOrder() {
+    var data = [];
+    var current = this.root;
+    function traverse(node) {
+      data.push(node.value);
+      if (node.left) return traverse(node.left);
+      if (node.right) return traverse(node.right);
+    }
+    traverse(current);
+    return data;
+  }
+  depthFirstSearchInOrder()  {
+    var data = [];
+    var current = this.root;
+    function traverse(node) {
+      data.push(node.value);
+      if (node.left) return traverse(node.left);
+      if (node.right) return traverse(node.right);
+    }
+    traverse(current);
+    return data;
   }
 }
 
-
 var tree = new BinarySearchTree();
-tree.insert(10)
-tree.insert(5)
-tree.insert(13)
-tree.insert(11)
-tree.insert(2)
-tree.insert(16)
-tree.insert(7)
+tree.insert(10);
+tree.insert(5);
+tree.insert(13);
+tree.insert(11);
+tree.insert(2);
+tree.insert(16);
+tree.insert(7);
 
-console.log(tree.find(13))
+console.log(tree.find(13));
