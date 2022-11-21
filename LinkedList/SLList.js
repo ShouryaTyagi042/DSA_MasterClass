@@ -138,3 +138,6 @@ var list = new singlyLinkedList() ;
 list.push("hello") ;
 list.push("Gooodbye") ;
 list.push("!")
+
+
+// Coding Copy
