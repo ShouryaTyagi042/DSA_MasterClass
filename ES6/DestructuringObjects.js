@@ -6,6 +6,8 @@ const player = {
     }
 } ;
 
+const [firstName,MiddleName,LastName] = [shourya,null,tyagi]
+console.log(firstName)
 console.log(player.name)
 
 const {name , address:{city}} = player
